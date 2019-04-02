@@ -4,11 +4,13 @@ defmodule Web.Router do
     plug :match
     plug :dispatch
 
-    get "/elixir" do
-        send_resp(conn, 200, "Ob-La-Di Ob-La-Da")
+    get "/elixir/:text" do
+        send_resp(conn, 200, "Hello, #{text}")
     end
 
     match _ do
         send_resp(conn, 404, "Nao eh aqui nao maluco.")
     end
+
 end
+
